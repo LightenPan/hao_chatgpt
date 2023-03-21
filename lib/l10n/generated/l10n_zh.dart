@@ -124,6 +124,9 @@ class SZh extends S {
   }
 
   @override
+  String get apiBaseUrl => 'API接口前缀';
+
+  @override
   String get httpProxy => 'HTTP代理';
 
   @override

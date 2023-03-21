@@ -35,6 +35,7 @@
   "home": "主页",
   "shortcuts": "快捷键",
   "sendWith": "使用 {shortcut} 发送",
+  "apiBaseUrl": "API接口前缀",
   "httpProxy": "HTTP代理",
   "enableProxy": "启用代理",
   "hostName": "主机名",

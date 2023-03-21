@@ -9,6 +9,7 @@ import 'package:hao_chatgpt/src/app_router.dart';
 import 'package:hao_chatgpt/src/extensions.dart';
 import 'package:hao_chatgpt/src/preferences_manager.dart';
 import 'package:hao_chatgpt/src/screens/settings/settings_proxy.dart';
+import 'package:hao_chatgpt/src/screens/settings/settings_apibaseurl.dart';
 import 'package:yaml/yaml.dart';
 
 import '../app_shortcuts.dart';
@@ -71,6 +72,7 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
               ),
 */
               if(getShortcutsKeys().length > 1) _buildShortcuts(),
+              _buildApiBaseUrlSetting(context),
               _buildProxySetting(context),
               _buildLanguageSetting(context),
               _buildThemeSetting(context),
@@ -109,6 +111,21 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
           }).toList(),
         ],
       ),
+    );
+  }
+
+  Widget _buildApiBaseUrlSetting(BuildContext context) {
+    return ListTile(
+      leading: const Icon(Icons.swap_vert),
+      title: Text(S.of(context).apiBaseUrl),
+      onTap: () {
+        showDialog(
+          context: context,
+          builder: (BuildContext ctx) {
+            return const SettingsApiBaseUrl();
+          },
+        );
+      },
     );
   }
 

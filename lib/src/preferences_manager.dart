@@ -226,6 +226,15 @@ class PreferencesManager {
     return _preferences.setString(SharedPreferencesKey.httpProxy, value);
   }
 
+  String? get apiBaseUrl => _preferences.getString(SharedPreferencesKey.apiBaseUrl);
+  Future<bool> setApiBaseUrl(String? value) {
+    if (value.isNotBlank) {
+      return _preferences.setString(SharedPreferencesKey.apiBaseUrl, value!);
+    } else {
+      return _preferences.remove(SharedPreferencesKey.apiBaseUrl);
+    }
+  }
+
 }
 
 class SharedPreferencesKey {
@@ -239,6 +248,7 @@ class SharedPreferencesKey {
   static const apiKeys = 'api_keys';
   static const shortcutsSend = 'shortcuts_send';
   static const httpProxy = 'http_proxy';
+  static const apiBaseUrl = 'api_base_url';
 }
 
 PreferencesManager appPref = PreferencesManager();

@@ -10,7 +10,9 @@ import 'package:hao_chatgpt/src/preferences_manager.dart';
 import '../constants.dart';
 
 class OpenaiClient {
-  static const baseUrl = "https://api.openai.com/v1";
+  static String version = "/v1";
+  static String domain = "https://api.openai.com";
+  static String baseUrl = domain + version;
 
   /// 'Content-Type: application/json'
   static BaseOptions baseOptions = BaseOptions(
@@ -24,7 +26,7 @@ class OpenaiClient {
   Dio get dio => _dio;
 
   OpenaiClient._internal() {
-    _dio = Dio(baseOptions);
+    updateApiBaseUrl();
     _setupProxy();
     _dio.interceptors.add(_OpenaiInterceptor());
   }
@@ -32,6 +34,14 @@ class OpenaiClient {
   static final OpenaiClient _client = OpenaiClient._internal();
 
   factory OpenaiClient() => _client;
+
+  void updateApiBaseUrl() {
+    if (appPref.apiBaseUrl != null) {
+      baseUrl = appPref.apiBaseUrl! + version;
+      baseOptions.baseUrl = appPref.apiBaseUrl! + version;
+    }
+    _dio = Dio(baseOptions);
+  }
 
   void _setupProxy() {
     (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate = (HttpClient client) {

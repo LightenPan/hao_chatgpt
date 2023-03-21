@@ -309,6 +309,12 @@ abstract class S {
   /// **'Send with {shortcut}'**
   String sendWith(String shortcut);
 
+  /// No description provided for @apiBaseUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'API Base Url'**
+  String get apiBaseUrl;
+
   /// No description provided for @httpProxy.
   ///
   /// In en, this message translates to:

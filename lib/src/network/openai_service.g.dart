@@ -124,4 +124,9 @@ class _OpenaiService implements OpenaiService {
     }
     return requestOptions;
   }
+
+  @override
+  void updateApiBaseUrl() {
+    openaiClient.updateApiBaseUrl();
+  }
 }

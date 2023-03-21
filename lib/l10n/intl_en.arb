@@ -59,6 +59,7 @@
       }
     }
   },
+  "apiBaseUrl": "API Base Url",
   "httpProxy": "HTTP Proxy",
   "enableProxy": "Enable proxy",
   "hostName": "Host name",

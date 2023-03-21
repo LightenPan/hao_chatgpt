@@ -124,6 +124,9 @@ class SEn extends S {
   }
 
   @override
+  String get apiBaseUrl => 'API Base Url';
+
+  @override
   String get httpProxy => 'HTTP Proxy';
 
   @override

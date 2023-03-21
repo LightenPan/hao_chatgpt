@@ -28,6 +28,8 @@ abstract class OpenaiService {
   @POST('/chat/completions')
   Future<ChatEntity> getChatCompletions(
       @Body() ChatQueryEntity query);
+
+  void updateApiBaseUrl();
 }
 
 OpenaiService openaiService = OpenaiService(openaiClient.dio);
